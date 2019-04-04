@@ -12,6 +12,10 @@
 		46FA5D8922535B6800DF1B6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FA5D8722535B6800DF1B6F /* Main.storyboard */; };
 		46FA5D8B22535B6A00DF1B6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46FA5D8A22535B6A00DF1B6F /* Assets.xcassets */; };
 		46FA5D8E22535B6A00DF1B6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FA5D8C22535B6A00DF1B6F /* LaunchScreen.storyboard */; };
+		46FA5D9922535DB200DF1B6F /* SingleLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA5D9522535DB100DF1B6F /* SingleLinkedList.swift */; };
+		46FA5D9A22535DB200DF1B6F /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA5D9622535DB100DF1B6F /* Sort.swift */; };
+		46FA5D9B22535DB200DF1B6F /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA5D9722535DB100DF1B6F /* Stack.swift */; };
+		46FA5D9C22535DB200DF1B6F /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA5D9822535DB100DF1B6F /* Queue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		46FA5D8A22535B6A00DF1B6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46FA5D8D22535B6A00DF1B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46FA5D8F22535B6A00DF1B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46FA5D9522535DB100DF1B6F /* SingleLinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLinkedList.swift; sourceTree = "<group>"; };
+		46FA5D9622535DB100DF1B6F /* Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
+		46FA5D9722535DB100DF1B6F /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		46FA5D9822535DB100DF1B6F /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +64,24 @@
 			children = (
 				46FA5D8322535B6800DF1B6F /* AppDelegate.swift */,
 				46FA5D8522535B6800DF1B6F /* ViewController.swift */,
+				46FA5D9D22535DB500DF1B6F /* Core */,
 				46FA5D8722535B6800DF1B6F /* Main.storyboard */,
 				46FA5D8A22535B6A00DF1B6F /* Assets.xcassets */,
 				46FA5D8C22535B6A00DF1B6F /* LaunchScreen.storyboard */,
 				46FA5D8F22535B6A00DF1B6F /* Info.plist */,
 			);
 			path = MyLeetCode;
+			sourceTree = "<group>";
+		};
+		46FA5D9D22535DB500DF1B6F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				46FA5D9822535DB100DF1B6F /* Queue.swift */,
+				46FA5D9522535DB100DF1B6F /* SingleLinkedList.swift */,
+				46FA5D9622535DB100DF1B6F /* Sort.swift */,
+				46FA5D9722535DB100DF1B6F /* Stack.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +156,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				46FA5D8622535B6800DF1B6F /* ViewController.swift in Sources */,
+				46FA5D9C22535DB200DF1B6F /* Queue.swift in Sources */,
+				46FA5D9B22535DB200DF1B6F /* Stack.swift in Sources */,
+				46FA5D9A22535DB200DF1B6F /* Sort.swift in Sources */,
+				46FA5D9922535DB200DF1B6F /* SingleLinkedList.swift in Sources */,
 				46FA5D8422535B6800DF1B6F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JZQHBRU87D;
 				INFOPLIST_FILE = MyLeetCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +328,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JZQHBRU87D;
 				INFOPLIST_FILE = MyLeetCode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

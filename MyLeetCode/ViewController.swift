@@ -15,6 +15,23 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    @IBAction func makeAction() {
+        var list = [11,8,3,3,3,9,7,1,2,5]
+//        let sort = MergeSort()
+//        sort.mergeSort(&list)
+//        print(list)
+        
+//        let sort = QuickSort()
+//        sort.quickSort(&list)
+//        print(list)
+        
+//        let sort = Sort()
+//        sort.selectionSort(list: &list);
+//        print(list)
+        
+        let s = Solution()
+        s.findKthLargest(list, 1)
+        
+    }
 }
 
