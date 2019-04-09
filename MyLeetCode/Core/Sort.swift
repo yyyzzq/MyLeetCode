@@ -156,4 +156,33 @@ extension Solution {
             return quickSort(&list, from: low, to: i - 1, k)
         }
     }
+    
+    // 179. 最大数
+    func largestNumber(_ nums: [Int]) -> String {
+        var list = nums
+        for i in 0..<list.count {
+            var flag = false
+            for j in 0..<list.count - i - 1 {
+                let pre = String(list[j]) + String(list[j + 1])
+                let suf = String(list[j + 1]) + String(list[j])
+                if pre < suf {
+                    list.swapAt(j, j + 1)
+                    flag = true
+                }
+            }
+            if !flag {
+                break
+            }
+        }
+        
+        if list.first == 0 {
+            return "0"
+        }
+        
+        var result = ""
+        for item in list {
+            result += String(item)
+        }
+        return result
+    }
 }
