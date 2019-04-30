@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46DC144E225B43370086C453 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DC144D225B43370086C453 /* Search.swift */; };
+		46DC1450225C47880086C453 /* SkipList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DC144F225C47880086C453 /* SkipList.swift */; };
 		46FA5D8422535B6800DF1B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA5D8322535B6800DF1B6F /* AppDelegate.swift */; };
 		46FA5D8622535B6800DF1B6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA5D8522535B6800DF1B6F /* ViewController.swift */; };
 		46FA5D8922535B6800DF1B6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FA5D8722535B6800DF1B6F /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		46DC144D225B43370086C453 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		46DC144F225C47880086C453 /* SkipList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipList.swift; sourceTree = "<group>"; };
 		46FA5D8022535B6800DF1B6F /* MyLeetCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLeetCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46FA5D8322535B6800DF1B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46FA5D8522535B6800DF1B6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				46FA5D9622535DB100DF1B6F /* Sort.swift */,
 				46FA5D9722535DB100DF1B6F /* Stack.swift */,
 				46DC144D225B43370086C453 /* Search.swift */,
+				46DC144F225C47880086C453 /* SkipList.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				46FA5D9C22535DB200DF1B6F /* Queue.swift in Sources */,
 				46FA5D9B22535DB200DF1B6F /* Stack.swift in Sources */,
 				46FA5D9A22535DB200DF1B6F /* Sort.swift in Sources */,
+				46DC1450225C47880086C453 /* SkipList.swift in Sources */,
 				46FA5D9922535DB200DF1B6F /* SingleLinkedList.swift in Sources */,
 				46FA5D8422535B6800DF1B6F /* AppDelegate.swift in Sources */,
 				46DC144E225B43370086C453 /* Search.swift in Sources */,
