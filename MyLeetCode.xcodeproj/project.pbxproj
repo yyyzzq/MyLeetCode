@@ -18,6 +18,7 @@
 		46FA5D9A22535DB200DF1B6F /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA5D9622535DB100DF1B6F /* Sort.swift */; };
 		46FA5D9B22535DB200DF1B6F /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA5D9722535DB100DF1B6F /* Stack.swift */; };
 		46FA5D9C22535DB200DF1B6F /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA5D9822535DB100DF1B6F /* Queue.swift */; };
+		46FBF02A22E1CDC300FE10B3 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FBF02922E1CDC300FE10B3 /* Tree.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		46FA5D9622535DB100DF1B6F /* Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		46FA5D9722535DB100DF1B6F /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		46FA5D9822535DB100DF1B6F /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		46FBF02922E1CDC300FE10B3 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				46FA5D9722535DB100DF1B6F /* Stack.swift */,
 				46DC144D225B43370086C453 /* Search.swift */,
 				46DC144F225C47880086C453 /* SkipList.swift */,
+				46FBF02922E1CDC300FE10B3 /* Tree.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				46FA5D8622535B6800DF1B6F /* ViewController.swift in Sources */,
 				46FA5D9C22535DB200DF1B6F /* Queue.swift in Sources */,
 				46FA5D9B22535DB200DF1B6F /* Stack.swift in Sources */,
+				46FBF02A22E1CDC300FE10B3 /* Tree.swift in Sources */,
 				46FA5D9A22535DB200DF1B6F /* Sort.swift in Sources */,
 				46DC1450225C47880086C453 /* SkipList.swift in Sources */,
 				46FA5D9922535DB200DF1B6F /* SingleLinkedList.swift in Sources */,
