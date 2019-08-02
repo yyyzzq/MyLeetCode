@@ -54,11 +54,12 @@ class ViewController: UIViewController {
 //        skip.printAll()
         
         let tree = BinarySearchTree()
-        let root = tree.sortedArrayToTree([1,2,3,4,5])
+        let root = tree.sortedArrayToTree([1,nil,2,3])
 //        tree.deleteNode(root, 1)
 //        tree.isSymmetric(root)
 //        tree.diameterOfBinaryTree(root)
-        tree.sumOfLeftLeaves(root)
+//        tree.sumOfLeftLeaves(root)
+        tree.flatten(root)
     }
 }
 

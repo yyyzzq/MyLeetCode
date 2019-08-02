@@ -64,7 +64,7 @@ public class BinarySearchTree {
                 return p
             }
         }
-        return nil;
+        return nil
     }
     
     public func insert(_ root: TreeNode?, _ val: Int) -> TreeNode? {
@@ -349,6 +349,167 @@ public class BinarySearchTree {
         }
         
         return sum
+    }
+    
+    // 114. 二叉树展开为链表
+    func flatten(_ root: TreeNode?) {
+        guard var r = root else {
+            return
+        }
+        if r.left == nil && r.right == nil {
+            return
+        }
+        
+        flatten(r.left)
+        flatten(r.right)
+        
+        let tmp = r.right
+        root?.right = r.left
+        root?.left = nil
+
+        while let right = r.right {
+            r = right
+        }
+        r.right = tmp
+    }
+    
+    // 98. 验证二叉搜索树
+    func isValidBST(_ root: TreeNode?) -> Bool {
+        return isValidBST(root, nil, nil)
+    }
+    
+    private func isValidBST(_ root: TreeNode?, _ lower: Int?, _ upper: Int?) -> Bool {
+        guard let r = root else {
+            return true
+        }
+        
+        if let l = lower, l >= r.val {
+            return false
+        }
+        if let u = upper, u <= r.val {
+            return false
+        }
+        if !isValidBST(root?.left, lower, r.val) {
+            return false
+        }
+        if !isValidBST(root?.right, r.val, upper) {
+            return false
+        }
+        return true
+    }
+    
+    // 102. 二叉树的层次遍历
+    func levelOrder(_ root: TreeNode?) -> [[Int]] {
+        var levels = [[Int]]()
+        guard let r = root else {
+            return levels
+        }
+        
+        var queue = [TreeNode]()
+        queue.append(r)
+        
+        while !queue.isEmpty {
+            var list = [Int]()
+            for _ in 0..<queue.count {
+                let node = queue.removeFirst()
+                list.append(node.val)
+                if let left = node.left {
+                    queue.append(left)
+                }
+                if let right = node.right {
+                    queue.append(right)
+                }
+            }
+            levels.append(list)
+        }
+        
+        return levels
+    }
+    
+    // 103. 二叉树的锯齿形层次遍历
+    func zigzagLevelOrder(_ root: TreeNode?) -> [[Int]] {
+        var levels = [[Int]]()
+        guard let r = root else {
+            return levels
+        }
+        
+        var queue = [r]
+        var level = 0
+        
+        while !queue.isEmpty {
+            var subList = [Int]()
+            for _ in 0..<queue.count {
+                let node = queue.removeFirst()
+                if level % 2 == 0 {
+                    subList.append(node.val)
+                } else {
+                    subList.insert(node.val, at: 0)
+                }
+                if let left = node.left {
+                    queue.append(left)
+                }
+                if let right = node.right {
+                    queue.append(right)
+                }
+            }
+            levels.append(subList)
+            level += 1
+        }
+        
+        return levels
+    }
+    
+    // 230. 二叉搜索树中第K小的元素
+    func kthSmallest(_ root: TreeNode?, _ k: Int) -> Int {
+        var result = 0
+        var cur = 0
+        
+        kthSmallest(root, k, &cur, &result)
+        return result
+    }
+    
+    private func kthSmallest(_ root: TreeNode?, _ k: Int, _ cur: inout Int, _ result: inout Int) {
+        guard let r = root else {
+            return
+        }
+        
+        if let left = r.left {
+            kthSmallest(left, k, &cur, &result)
+        }
+        cur += 1
+        if k == cur {
+            result = r.val
+            return
+        }
+        if let right = r.right {
+            kthSmallest(right, k, &cur, &result)
+        }
+    }
+    
+    // 199. 二叉树的右视图
+    func rightSideView(_ root: TreeNode?) -> [Int] {
+        var levels = [Int]()
+        guard let r = root else {
+            return levels
+        }
+        
+        var queue = [r]
+        while !queue.isEmpty {
+            let last = queue.last!
+            levels.append(last.val)
+            
+            for _ in 0..<queue.count {
+                let node = queue.removeFirst()
+                
+                if let left = node.left {
+                    queue.append(left)
+                }
+                if let right = node.right {
+                    queue.append(right)
+                }
+            }
+        }
+        return levels
     }
 }
 
