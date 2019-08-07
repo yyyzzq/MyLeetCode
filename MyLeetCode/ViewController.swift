@@ -59,7 +59,9 @@ class ViewController: UIViewController {
 //        tree.isSymmetric(root)
 //        tree.diameterOfBinaryTree(root)
 //        tree.sumOfLeftLeaves(root)
-        tree.flatten(root)
+//        tree.flatten(root)
+        tree.buildTree([3,9,20,15,7], [9,3,15,20,7])
     }
 }
+
 

@@ -511,6 +511,188 @@ public class BinarySearchTree {
         }
         return levels
     }
+    
+    /*
+     105. 从前序与中序遍历序列构造二叉树
+     前序遍历 preorder = [3 | 9 | 20,15,7]
+     中序遍历 inorder = [9 | 3 | 15,20,7]
+     */
+    func buildTree(_ preorder: [Int], _ inorder: [Int]) -> TreeNode? {
+        guard preorder.count > 0 && inorder.count > 0 else {
+            return nil
+        }
+        return buildTree(preorder, 0, preorder.count - 1, inorder, 0, inorder.count - 1)
+    }
+    
+    private func buildTree(_ preorder: [Int], _ preStart: Int, _ preEnd: Int, _ inorder: [Int], _ inStart: Int, _ inEnd: Int) -> TreeNode? {
+        if preStart > preEnd || inStart > inEnd {
+            return nil;
+        }
+        print(preStart,preEnd,inStart,inEnd)
+        
+        let root = TreeNode(preorder[preStart])
+        
+        var mid: Int?
+        for i in inStart...inEnd {
+            if inorder[i] == root.val {
+                mid = i
+                break
+            }
+        }
+        
+        if let mid = mid {
+            root.left = buildTree(preorder, preStart + 1, preStart + (mid - inStart), inorder, inStart, mid - 1)
+            root.right = buildTree(preorder, preStart + (mid - inStart) + 1, preEnd, inorder, mid + 1, inEnd)
+        }
+        
+        return root
+    }
+    
+    /*
+     106. 从中序与后序遍历序列构造二叉树                
+     中序遍历 inorder = [9 | 3 | 15,20,7]
+     后序遍历 postorder = [9 | 15,7,20 | 3]
+     */
+    func postBuildTree(_ inorder: [Int], _ postorder: [Int]) -> TreeNode? {
+        return postBuildTree(inorder, 0, inorder.count - 1, postorder, 0, postorder.count - 1)
+    }
+    
+    private func postBuildTree(_ inorder: [Int], _ inStart: Int, _ inEnd: Int, _ postorder: [Int], _ postStart: Int, _ postEnd: Int) -> TreeNode? {
+        if inStart > inEnd || postStart > postEnd {
+            return nil
+        }
+        
+        let root = TreeNode(postorder[postEnd])
+        var mid: Int?
+        
+        for i in inStart...inEnd {
+            if inorder[i] == root.val {
+                mid = i
+            }
+        }
+        
+        if let mid = mid {
+            root.left = postBuildTree(inorder, inStart, mid - 1, postorder, postStart, postStart + (mid - inStart) - 1)
+            root.right = postBuildTree(inorder, mid + 1, inEnd, postorder, postStart + (mid - inStart), postEnd - 1)
+        }
+        
+        return root
+    }
+    
+    // 112. 路径总和
+    func hasPathSum(_ root: TreeNode?, _ sum: Int) -> Bool {
+        guard let r = root else {
+            return false
+        }
+        
+        let v = sum - r.val
+        if r.left == nil && r.right == nil {
+            return v == 0
+        }
+        return hasPathSum(r.left, v) || hasPathSum(r.right, v)
+    }
+    
+    // 113. 路径总和 II
+    func pathSum(_ root: TreeNode?, _ sum: Int) -> [[Int]] {
+        var res = [[Int]]()
+        var tmp = [Int]()
+        pathSum(root, sum, &tmp, &res)
+        return res
+    }
+    
+    private func pathSum(_ root: TreeNode?, _ sum: Int, _ tmp: inout [Int], _ res: inout [[Int]]) {
+        guard let r = root else {
+            return
+        }
+        
+        let v = sum - r.val
+        tmp.append(r.val)
+        
+        if r.left == nil && r.right == nil {
+            if v == 0 {
+                res.append(tmp)
+            }
+        }
+        
+        pathSum(r.left, v, &tmp, &res)
+        pathSum(r.right, v, &tmp, &res)
+        tmp.removeLast()
+    }
+    
+    // 437. 路径总和 III
+    func pathSumIII(_ root: TreeNode?, _ sum: Int) -> Int {
+        guard let root = root else {
+            return 0
+        }
+        
+        let value = pathsIII(root, sum)
+        let left = pathSumIII(root.left, sum)
+        let right = pathSumIII(root.right, sum)
+        
+        return value + left + right
+    }
+    
+    private func pathsIII(_ root: TreeNode?, _ sum: Int) -> Int {
+        guard let r = root else {
+            return 0
+        }
+        
+        var num = 0
+        if sum == r.val {
+            num += 1
+        }
+        
+        num += pathsIII(r.left, sum - r.val)
+        num += pathsIII(r.right, sum - r.val)
+        
+        return num
+    }
+    
+    // 257. 二叉树的所有路径
+    func binaryTreePaths(_ root: TreeNode?) -> [String] {
+        var result = [String]()
+        guard let root = root else {
+            return result
+        }
+        
+        binaryTreePaths(root, String(), &result)
+        return result
+    }
+    
+    private func binaryTreePaths(_ root: TreeNode?, _ path: String, _ result: inout [String]) {
+        guard let root = root else {
+            return
+        }
+        
+        var path = path
+        if root.left == nil && root.right == nil {
+            path += "\(root.val)"
+            result.append(path)
+            return
+        }
+        
+        path += "\(root.val)->"
+        
+        binaryTreePaths(root.left, path, &result)
+        binaryTreePaths(root.right, path, &result)
+    }
+    
+    // 617. 合并二叉树
+    func mergeTrees(_ t1: TreeNode?, _ t2: TreeNode?) -> TreeNode? {
+        if t1 == nil && t2 == nil {
+            return nil
+        } else if t1 == nil {
+            return t2
+        } else if t2 == nil {
+            return t1
+        }
+        
+        t1?.val = t1!.val + t2!.val
+        t1?.left = mergeTrees(t1?.left, t2?.left)
+        t1?.right = mergeTrees(t1?.right, t2?.right)
+        
+        return t1
+    }
 }
 
 
